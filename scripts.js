@@ -3,12 +3,14 @@
 const todoInput = document.querySelector('.todo-input');
 const todoButton = document.querySelector('.todo-button');
 const todoList = document.querySelector('.todo-list');
+const filterOption = document.querySelector('filter-todo');
 
 
 
 // event listeners
-todoButton.addEventListener('click', addTodo)
-todoList.addEventListener('click', deleteCheck)
+todoButton.addEventListener('click', addTodo);
+todoList.addEventListener('click', deleteCheck);
+filterOption.addEventListener('click', filterTodo);
 //functions
 
 function addTodo(event) {
@@ -22,6 +24,7 @@ function addTodo(event) {
     newTodo.innerText = todoInput.value;
     newTodo.classList.add('todo-item');
     todoDiv.appendChild(newTodo);
+    // const filterOption = document.querySelector('.filter-todo');
     //Check mark button
     const completedButton =  document.createElement('button');
     completedButton.innerHTML = '<i class = "fas fa-check"></i>'
@@ -59,4 +62,9 @@ function deleteCheck(e) {
         todo.classList.toggle("completed")
     }
 
+}
+
+function filterTodo(e) {
+    const todos = todoList.childNodes;
+    console.log(todos);
 }
